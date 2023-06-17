@@ -50,9 +50,9 @@ def grasp_bipartization(graph, k, iterations):
             
     #eturn best_solution, min_deleted_edges
 
-def local_search(subgraph):
+def local_search(subgraph, iter):
    
-    while True:
+    for _ in range(iter):
         # Buscar un par de nodos que no estén conectados y que si se conectaran generarían un subgrafo bipartito
         try:
             X, Y = bipartite.sets(subgraph)
@@ -83,28 +83,3 @@ def local_search(subgraph):
         else:
             # Si no se encontró un par de nodos que mejorara la solución, terminar la búsqueda local
             return subgraph
-
-# p = {
-#      1: [2,3],
-#      2: [1,3,4], 
-#      3: [1,2,4],
-#      4: [2,3]
-# }
-
-# G = nx.Graph(p)
-# # #Casos correctos 
-
-# #print(edge_bipartization(G, 0))
-# true = 0
-# good = 0
-
-# for _ in range(30):
-#     for _ in range(30):
-#         if grasp_bipartization(G, 0, 6):
-#             true += 1
-
-#     if true > 15:
-#         good += 1
-
-# print(good)
-# print(30-good)

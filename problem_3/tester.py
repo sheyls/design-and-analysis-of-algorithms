@@ -2,7 +2,7 @@ import networkx as nx
 import random
 from exponencial import can_be_made_bipartite
 from fpt1 import bipartization
-from aprox_sol import grasp_bipartization
+from aprox import random_bipartization
 from colorama import Fore
 
 def generate_test_cases(n, k_min, k_max):
@@ -17,7 +17,7 @@ def generate_test_cases(n, k_min, k_max):
         # Find optimal solution
         fpt = bipartization(G, k)
  
-        exp = grasp_bipartization(G, k, 10)
+        exp = random_bipartization(G, k, 10)
 
         print(Fore.WHITE, f"Test case:{k=}")
         if fpt == exp:
@@ -35,7 +35,7 @@ def specific_cases():
 
     fpt = bipartization(G, k)
  
-    exp = grasp_bipartization(G, k, 30)
+    exp = random_bipartization(G, k, 30)
 
     if fpt == exp:
         print(Fore.GREEN, exp ,"==" , fpt )
@@ -52,7 +52,7 @@ def specific_cases():
     
     fpt = bipartization(G, k)
  
-    exp = grasp_bipartization(G, k, 30)
+    exp = random_bipartization(G, k, 30)
 
     if fpt == exp:
         print(Fore.GREEN, exp ,"==" , fpt )
@@ -65,7 +65,7 @@ def specific_cases():
     k = n-1
 
     fpt = bipartization(G, k)
-    exp = grasp_bipartization(G, k, 30)
+    exp = random_bipartization(G, k, 30)
 
     if fpt == exp:
         print(Fore.GREEN, exp ,"==" , fpt )
@@ -78,7 +78,7 @@ def specific_cases():
     k = n//2
 
     fpt = bipartization(G, k)
-    exp = grasp_bipartization(G, k, 30)
+    exp = random_bipartization(G, k, 30)
 
     if fpt == exp:
         print(Fore.GREEN, exp ,"==" , fpt )
